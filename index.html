@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PWEB | Projeto Final">
+    <meta name="keywords" content="To Do List">
+    <meta name="author" content="Franciele Rodrigues">
+    <title>Check_C | Home</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <img id="logotipo" src="Logo_CheckC.png" alt="logotipo Check_C" onclick="pageHome()">
+        <img id="usuario" src="FotoPerfil.jpg" alt="foto usuario">
+    </header>
+    
+    <div class="sidebar" id="nav">
+        <div class="tarefa" id="home" onclick="pageHome()"><h3>Home<h3></div>
+        <div class="tarefa">
+            <h3>Tarefas</h3>
+                <div id="hoje">Hoje</div>
+                <div id="calendario">Calendário</div>
+            </ul>
+        </div>
+        
+        <div class="categorias">
+            <h3>Categorias</h3>
+            <span><span class="color color-pessoal" id="Pessoal" onclick="pageCategoria(this.id)"></span>Pessoal</span>
+            <span><span class="color color-trabalho" id="Trabalho" onclick="pageCategoria(this.id)"></span>Trabalho</span>
+            <span><span class="color color-estudo" id="Estudo" onclick="pageCategoria(this.id)"></span>Estudo</span>
+        </div>
+        <div class="botoes">
+            <button class="icone"><img src="icone_notificacao.png" alt="notificacao"> Notificações</button>
+            <button class="icone"><img src="icone_configuracao.png" alt="configuracao">Configurações</button>
+            <button class="icone"><img src="icone_logout.png" alt="logout">Logout</button>
+        </div>
+    </div>
+
+    <div class="content" id="main">
+        <div class="header">
+            <h2>Meu dia</h2>
+            <div id="dataHoje">
+                Domingo, 25 de maio de 2024
+            </div>
+        </div>
+        <hr>
+        <div class="container-box">
+            <div class="box pessoal" id="PessoalTask" onclick="pageCategoria('Pessoal')">
+                <h2>Pessoal</h2>
+
+            </div>
+            <div class="box trabalho" id="TrabalhoTask" onclick="pageCategoria('Trabalho')">
+                <h2>Trabalho</h2>
+
+            </div>
+            <div class="box estudo" id="EstudoTask" onclick="pageCategoria('Estudo')">
+                <h2>Estudo</h2>
+
+            </div>
+
+            <div class="add-task" id="add" onclick="alert('Desculpe! Essa página está indisponível!')">+</div>
+            
+        </div>
+        
+    </div> 
+</body>
+</html>

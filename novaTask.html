@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PWEB | Projeto Final">
+    <meta name="keywords" content="To Do List">
+    <meta name="author" content="Franciele Rodrigues">
+    <title>Check_C | Nova Tarefa</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="app_NovaTask.js" defer></script>
+</head>
+<body>
+    <header>
+        <img id="logotipo" src="Logo_CheckC.png" alt="logotipo Check_C" onclick="pageHome()">
+        <img id="usuario" src="FotoPerfil.jpg" alt="foto usuario">
+    </header>
+    
+    <div class="sidebar" id="nav">
+        <div class="tarefa" id="home" onclick="pageHome()"><h3>Home<h3></div>
+        <div class="tarefa">
+            <h3>Tarefas</h3>
+                <div id="hoje">Hoje</div>
+                <div id="calendario">Calendário</div>
+            </ul>
+        </div>
+        <div class="categorias">
+            <h3>Categorias</h3>
+            <span><span class="color color-pessoal"></span>Pessoal</span>
+            <span><span class="color color-trabalho"></span>Trabalho</span>
+            <span><span class="color color-estudo"></span>Estudo</span>
+        </div>
+        <div class="botoes">
+            <button class="icone"><img src="icone_notificacao.png" alt="notificacao"> Notificações</button>
+            <button class="icone"><img src="icone_configuracao.png" alt="configuracao">Configurações</button>
+            <button class="icone"><img src="icone_logout.png" alt="logout">Logout</button>
+        </div>
+    </div>
+
+    <div class="content" id="main">
+        <div class="header">
+            <h2 id="cabecalho">Nova Tarefa</h2>
+            <div id="dataHoje">
+                Data atualizada aqui
+            </div>
+        </div>
+        <hr>
+        <form method="POST" name="formulario1" id="formulario1" onsubmit="criarTarefa()">
+            <div id="form">
+                <div class="itemForm" id="Task-titulo">
+                    <input name="Titulo" type="text" id="titulo" size="52" maxlength="150" placeholder="Título" class="itemForm">
+                </div>
+                <div class="itemForm" id="Task-descricao">
+                    <textarea name="Descricao" id="descricao" placeholder="Descrição" cols="100" minlength="20" maxlength="150" rows="6" class="itemForm"></textarea><br><br>
+                </div>
+                <div id="demaisItens">
+                    <div class="itemForm" id="categoria">
+                        <img src="icone_listaCategorias.png" alt="icone de lista de categorias">
+                        <select name="categoria" id="listaCategorias" class="itemForm" onchange="verificarCategoria();">
+                            <option value="Categoria">Categorias</option>
+                            <option value="Pessoal">Pessoal</option>
+                            <option value="Trabalho">Trabalho</option>
+                            <option value="Estudo">Estudo</option>
+                        </select>
+                    </div>
+                    <div class="itemForm" id="vencimento">
+                        Vencimento: 
+                        <input type="date" id="data" class="itemForm">
+                    </div>
+                    <div class="itemForm" id="prioridade">
+                        Prioridade:  
+                        <input type="radio" id=1 onclick="verificaRadioCheck(1)"> 
+                        <input type="radio" id=2 onclick="verificaRadioCheck(2)"> 
+                        <input type="radio" id=3 onclick="verificaRadioCheck(3)"> 
+                        <input type="radio" id=4 onclick="verificaRadioCheck(4)"> 
+                        <input type="radio" id=5 onclick="verificaRadioCheck(5)">
+                    </div>
+                    <div class="itemForm" id="notificacao">
+                        Notificar? 
+                        <input type="checkbox" id="notificar_Sim" class="itemForm" onclick="verificaCheckbox()">Sim
+                        <input type="checkbox" id="notificar_Nao" class="itemForm" onclick="verificaCheckbox()">Não
+                    </div>
+                </div>
+                <div id="btn_save">
+                    <input class="itemForm" name="Submit" type="submit" id="submit" form="formulario1" value="Salvar">
+                </div>
+            </div>
+        </form>
+        </div>
+        
+    </div>
+</body>
+</html>
