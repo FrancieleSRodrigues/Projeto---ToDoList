@@ -1,4 +1,3 @@
-//assim que carregar a página
 window.onload = function() {
     atualizarData();
 };
@@ -21,10 +20,16 @@ function formatarData(data) {
     return diaSemana + ", " + dia + " de " + mes + " de " + ano;
 }
 
-//variaveis universais
-var contadora = 1;
+const Home = document.getElementById('home');
 
-//navegando entre as páginas
+Home.addEventListener('mouseover', function() {
+    Home.style.backgroundColor = 'lightblue';
+});
+
+Home.addEventListener('mouseout', function() {
+    Home.style.backgroundColor = 'white';
+});
+
 function pageHome(){
     window.location.href = "index.html";
 }
@@ -33,19 +38,22 @@ function pageCategoria(id){
     window.location.href = 'categorias.html?texto=' + encodeURIComponent(id);
 }
 
+function pageNovaTask(){
+    window.location.href = "novaTask.html";
+}
 
 const listaPessoal = document.getElementById('PessoalTask');
 const listaTrabalho = document.getElementById('TrabalhoTask');
 const listaEstudo = document.getElementById('EstudoTask');
 
 
-var listaPessoalLocalStorage = localStorage.getItem('Pessoal');//Vetor pegando o json do LocalStorage (string)
-var listaTrabalhoLocalStorage = localStorage.getItem('Trabalho');//Vetor pegando o json do LocalStorage (string)
-var listaEstudoLocalStorage = localStorage.getItem('Estudo');//Vetor pegando o json do LocalStorage (string)
+var listaPessoalLocalStorage = localStorage.getItem('Pessoal');
+var listaTrabalhoLocalStorage = localStorage.getItem('Trabalho');
+var listaEstudoLocalStorage = localStorage.getItem('Estudo');
 
-var listaPessoalConvertida = JSON.parse(listaPessoalLocalStorage); //Convertendo o json para um objeto JS
-var listaTrabalhoConvertida = JSON.parse(listaTrabalhoLocalStorage); //Convertendo o json para um objeto JS
-var listaEstudoConvertida = JSON.parse(listaEstudoLocalStorage); //Convertendo o json para um objeto JS
+var listaPessoalConvertida = JSON.parse(listaPessoalLocalStorage); 
+var listaTrabalhoConvertida = JSON.parse(listaTrabalhoLocalStorage); 
+var listaEstudoConvertida = JSON.parse(listaEstudoLocalStorage);
 
 
 if(listaPessoalConvertida == null){

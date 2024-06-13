@@ -13,8 +13,8 @@
 </head>
 <body>
     <header>
-        <img id="logotipo" src="Logo_CheckC.png" alt="logotipo Check_C" onclick="pageHome()">
-        <img id="usuario" src="FotoPerfil.jpg" alt="foto usuario">
+        <img id="logotipo" src="img/Logo_CheckC.png" alt="logotipo Check_C" onclick="pageHome()">
+        <img id="usuario" src="img/FotoPerfil.jpg" alt="foto usuario" onclick="alert('Desculpe! Essa página está indisponível!')">
     </header>
     
     <div class="sidebar" id="nav">
@@ -31,11 +31,6 @@
             <span><span class="color color-pessoal" id="Pessoal" onclick="pageCategoria(this.id)"></span>Pessoal</span>
             <span><span class="color color-trabalho" id="Trabalho" onclick="pageCategoria(this.id)"></span>Trabalho</span>
             <span><span class="color color-estudo" id="Estudo" onclick="pageCategoria(this.id)"></span>Estudo</span>
-        </div>
-        <div class="botoes">
-            <button class="icone"><img src="icone_notificacao.png" alt="notificacao"> Notificações</button>
-            <button class="icone"><img src="icone_configuracao.png" alt="configuracao">Configurações</button>
-            <button class="icone"><img src="icone_logout.png" alt="logout">Logout</button>
         </div>
     </div>
 
@@ -61,7 +56,7 @@
 
             </div>
 
-            <div class="add-task" id="add" onclick="alert('Desculpe! Essa página está indisponível!')">+</div>
+            <div class="add-task" id="add" onclick="pageNovaTask()">+</div>
             
         </div>
         

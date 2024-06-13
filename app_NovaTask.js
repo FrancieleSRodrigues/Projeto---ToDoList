@@ -1,4 +1,3 @@
-//assim que carregar a página
 window.onload = function() {
     atualizarData();
 };
@@ -21,12 +20,20 @@ function formatarData(data) {
     return diaSemana + ", " + dia + " de " + mes + " de " + ano;
 }
 
-//navegando entre as páginas
+const Home = document.getElementById('home');
+
+Home.addEventListener('mouseover', function() {
+    Home.style.backgroundColor = 'lightblue';
+});
+
+Home.addEventListener('mouseout', function() {
+    Home.style.backgroundColor = 'white';
+});
+
 function pageHome(){
     window.location.href = "index.html";
 }
 
-//ajustando radio prioridade e checkbox notificacao
 function verificaRadioCheck(id){
     switch(id){
         case 5:
@@ -61,16 +68,12 @@ function verificaCheckbox(){
     return true;
 }
 
-//criando lista de Categoria Pessoal
-var listaCategoriaPessoal = [];
-
-//criando a classe tarefa
 class Tarefa {
     constructor(titulo, descricao, categoria, vencimento, prioridade, notificacao, status) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.categoria = categoria;
-        this.vencimento = (vencimento);  //Converte a data para um objeto Date
+        this.vencimento = vencimento;
         this.prioridade = prioridade;
         this.notificacao = notificacao;
         this.status = status;
@@ -124,30 +127,30 @@ function criarTarefa(){
     }
 
     var Tarefa1 = new Tarefa(
-        document.getElementById("titulo").value, //titulo
-        document.getElementById("descricao").value, //descricao 
-        categoria, //categoria
-        document.getElementById("data").value, //vencimento
-        prioridade,  // Prioridade de 1 a 5, por exemplo
-        notificacao, // Notificação habilitada
+        document.getElementById("titulo").value,
+        document.getElementById("descricao").value, 
+        categoria, 
+        document.getElementById("data").value,
+        prioridade, 
+        notificacao, 
         status
     );
 
-    var lista = localStorage.getItem(categoria);//Vetor pegando o json do LocalStorage (string)
-    var templist = [] //lista temporária
+    var lista = localStorage.getItem(categoria);
+    var templist = [] 
     
     if ( lista == null) {
 
-        templist.push(Tarefa1); //Adicionando a tarefa criada
-        const jsonString = JSON.stringify(templist, null, 2); //criando um json com o objeto Tarefa1 criado.
-        localStorage.setItem(categoria, jsonString);//salvando o json criado no navegador.
+        templist.push(Tarefa1);
+        const jsonString = JSON.stringify(templist, null, 2);
+        localStorage.setItem(categoria, jsonString);
     } else {
-        var jsonConvertido = JSON.parse(lista); //Convertendo o json para um objeto JS
-        jsonConvertido.push(Tarefa1); //Adicionando a tarefa criada
-        const jsonString = JSON.stringify(jsonConvertido, null, 2); //criando um json com o objeto Tarefa1 criado.
-        localStorage.setItem(categoria, jsonString);//salvando o json criado no navegador.
+        var jsonConvertido = JSON.parse(lista);
+        jsonConvertido.push(Tarefa1);
+        const jsonString = JSON.stringify(jsonConvertido, null, 2);
+        localStorage.setItem(categoria, jsonString);
     }
     
-    
+    pageHome();
     return(alert("Tarefa criada com sucesso!"));
 }

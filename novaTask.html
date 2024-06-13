@@ -13,8 +13,8 @@
 </head>
 <body>
     <header>
-        <img id="logotipo" src="Logo_CheckC.png" alt="logotipo Check_C" onclick="pageHome()">
-        <img id="usuario" src="FotoPerfil.jpg" alt="foto usuario">
+        <img id="logotipo" src="img/Logo_CheckC.png" alt="logotipo Check_C" onclick="pageHome()">
+        <img id="usuario" src="img/FotoPerfil.jpg" alt="foto usuario" onclick="alert('Desculpe! Essa página está indisponível!')">
     </header>
     
     <div class="sidebar" id="nav">
@@ -30,11 +30,6 @@
             <span><span class="color color-pessoal"></span>Pessoal</span>
             <span><span class="color color-trabalho"></span>Trabalho</span>
             <span><span class="color color-estudo"></span>Estudo</span>
-        </div>
-        <div class="botoes">
-            <button class="icone"><img src="icone_notificacao.png" alt="notificacao"> Notificações</button>
-            <button class="icone"><img src="icone_configuracao.png" alt="configuracao">Configurações</button>
-            <button class="icone"><img src="icone_logout.png" alt="logout">Logout</button>
         </div>
     </div>
 
@@ -56,7 +51,7 @@
                 </div>
                 <div id="demaisItens">
                     <div class="itemForm" id="categoria">
-                        <img src="icone_listaCategorias.png" alt="icone de lista de categorias">
+                        <img src="img/icone_listaCategorias.png" alt="icone de lista de categorias">
                         <select name="categoria" id="listaCategorias" class="itemForm" onchange="verificarCategoria();">
                             <option value="Categoria">Categorias</option>
                             <option value="Pessoal">Pessoal</option>

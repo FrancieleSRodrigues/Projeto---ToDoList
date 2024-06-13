@@ -1,4 +1,3 @@
-//carregar assim que abre a página
 window.onload = function() {
     atualizarData();
 
@@ -32,13 +31,22 @@ function formatarData(data) {
     return diaSemana + ", " + dia + " de " + mes + " de " + ano;
 }
 
-//navegando entre paginas
+const Home = document.getElementById('home');
+
+Home.addEventListener('mouseover', function() {
+    Home.style.backgroundColor = 'lightblue';
+});
+
+Home.addEventListener('mouseout', function() {
+    Home.style.backgroundColor = 'white';
+});
+
 function pageHome(){
     window.location.href = "index.html";
 }
 
-var lista = localStorage.getItem(getCategoria());//Vetor pegando o json do LocalStorage (string)
-var jsonConvertido = JSON.parse(lista); //Convertendo o json para um objeto JS
+var lista = localStorage.getItem(getCategoria());
+var jsonConvertido = JSON.parse(lista);
 
 const listaDeItensElement = document.getElementById('Pessoal');
 
@@ -61,9 +69,9 @@ jsonConvertido.forEach((item, indice) => {
     buttonEdit.className = "edit";
     
     const imgButton = document.createElement('img');
-    imgButton.src = "Icone_Editar.png";
+    imgButton.src = "img/Icone_Editar.png";
 
-    buttonEdit.onclick = function EditarTask(){ //Editar Tarefa       
+    buttonEdit.onclick = function EditarTask(){    
         window.location.href = `editTask.html?categoria=${encodeURIComponent(getCategoria())}&indice=${indice}`;
     }
 
@@ -74,8 +82,7 @@ jsonConvertido.forEach((item, indice) => {
 
     checkbox.checked = jsonConvertido[indice].status == 0 ? true : false ;
     
-    checkbox.onclick = function TaskConcluida(){ //Check na Tarefa
-        
+    checkbox.onclick = function TaskConcluida(){
         if(jsonConvertido[indice].status == 1){
             jsonConvertido[indice].status = 0;
             div.id = "completa";
@@ -85,24 +92,24 @@ jsonConvertido.forEach((item, indice) => {
         }
         
 
-        const jsonString = JSON.stringify(jsonConvertido, null, 2); //criando um json com o objeto Tarefa criado.
-        localStorage.setItem(getCategoria(), jsonString);//salvando o json criado no navegador.
+        const jsonString = JSON.stringify(jsonConvertido, null, 2);
+        localStorage.setItem(getCategoria(), jsonString);
     }
 
 
     const buttonDelete = document.createElement('button');
     buttonDelete.className = "delete";
-    buttonDelete.onclick = function DeleteTask(){ //Botão Deletar        
+    buttonDelete.onclick = function DeleteTask(){       
         jsonConvertido.splice(indice,1);
 
-        const jsonString = JSON.stringify(jsonConvertido, null, 2); //criando um json com o objeto Tarefa1 criado.
-        localStorage.setItem(getCategoria(), jsonString);//salvando o json criado no navegador.
+        const jsonString = JSON.stringify(jsonConvertido, null, 2); 
+        localStorage.setItem(getCategoria(), jsonString);
 
         location.reload();
     }
     
     const imgButtonDelete = document.createElement('img');
-    imgButtonDelete.src = "Icone_Lixeira.png";
+    imgButtonDelete.src = "img/Icone_Lixeira.png";
 
     buttonEdit.appendChild(imgButton);
 
@@ -121,7 +128,6 @@ jsonConvertido.forEach((item, indice) => {
     const labelTitle = document.createElement('label');
     const labelDescription = document.createElement('label');
     const labelVencimento = document.createElement('label');
-    //Criando os radio buttons
 
     const input1 = document.createElement('input');
     const input2 = document.createElement('input');
@@ -144,7 +150,6 @@ jsonConvertido.forEach((item, indice) => {
     div2.appendChild(labelVencimento);
     
     const div3 = document.createElement('div');
-    // div3.className = "itemForm";
 
     div3.textContent = "Prioridade: "
 
@@ -191,14 +196,13 @@ jsonConvertido.forEach((item, indice) => {
 });
 
 
-
-    const divAdd = document.createElement('div');
-    divAdd.className = "add-task";
-    divAdd.textContent = "+";
-    divAdd.onclick = function pageNovaTask(){
-        window.location.href = "novaTask.html";
-    };
-    listaDeItensElement.appendChild(divAdd);
+const divAdd = document.createElement('div');
+divAdd.className = "add-task";
+divAdd.textContent = "+";
+divAdd.onclick = function pageNovaTask(){
+    window.location.href = "novaTask.html";
+};
+listaDeItensElement.appendChild(divAdd);
 
 
 
